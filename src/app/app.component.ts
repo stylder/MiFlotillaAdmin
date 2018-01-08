@@ -1,6 +1,4 @@
-import { Component, Optional } from '@angular/core';
-import { MatDialog, MatDialogRef, MatSnackBar } from '@angular/material';
-
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',

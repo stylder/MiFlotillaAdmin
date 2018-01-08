@@ -1,5 +1,6 @@
 import {Component, OnInit, Optional} from '@angular/core';
 import {MatDialog, MatDialogRef, MatSnackBar} from '@angular/material';
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-home',
@@ -52,7 +53,7 @@ export class HomeComponent implements OnInit {
     {name: 'Warn', color: 'warn'}
   ];
 
-  constructor(private _dialog: MatDialog, private _snackbar: MatSnackBar) {
+  constructor(private _dialog: MatDialog, private _snackbar: MatSnackBar, private authService: AuthService) {
     // Update the value for the progress-bar on an interval.
     setInterval(() => {
       this.progress = (this.progress + Math.floor(Math.random() * 4) + 1) % 100;
@@ -73,6 +74,7 @@ export class HomeComponent implements OnInit {
 
   logout() {
     console.log('Logout')
+    this.authService.logout();
   }
 
   OnInit() {

@@ -11,34 +11,39 @@ export class AuthService {
 
   constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
     this.user = _firebaseAuth.authState;
+
     this.user.subscribe(
       (user) => {
         if (user) {
           this.userDetails = user;
+          this.router.navigate(['/'])
           console.log(this.userDetails);
         } else {
           this.userDetails = null;
+          this.router.navigate(['/login'])
         }
       }
     );
   }
 
-  signInWithTwitter() {
-    return this._firebaseAuth.auth.signInWithPopup(
-      new firebase.auth.TwitterAuthProvider()
-    )
-  }
-
-  signInWithFacebook() {
-    return this._firebaseAuth.auth.signInWithPopup(
-      new firebase.auth.FacebookAuthProvider()
-    )
-  }
 
   signInWithGoogle() {
     return this._firebaseAuth.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider()
     )
+  }
+
+  signUpWithEmail(email: string, password: string) {
+    return this._firebaseAuth.auth.signInWithEmailAndPassword(email, password)
+      .then((user) => {
+
+        console.log('Welcome >>', user);
+        this.user = user
+      })
+      .catch(error => {
+        console.log('Login', error);
+        throw error
+      });
   }
 
   isLoggedIn() {
