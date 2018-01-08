@@ -67,8 +67,12 @@ export class HomeComponent implements OnInit {
     this.slider.tickInterval = Number(v);
   }
 
-  ngOnInit(){
+  ngOnInit() {
     console.log('OnInit')
+  }
+
+  logout() {
+    console.log('Logout')
   }
 
   OnInit() {
