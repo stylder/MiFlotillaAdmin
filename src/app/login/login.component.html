@@ -1,21 +1,21 @@
 
+<div class="wrapper">
+  <div class="app-content">
+    <div class="group">
+      <form role="form" (submit)="login()">
+        <mat-form-field>
+          <input [(ngModel)]="email" name="email" matInput placeholder="Correo Eléctronico" >
+        </mat-form-field>
 
-<div class="app-content">
+        <mat-form-field>
+          <input [(ngModel)]="password" name="password" matInput type="password" placeholder="Contraseña" >
+        </mat-form-field>
 
-  <div class="group">
-
-    <form role="form" (submit)="login()">
-      <mat-form-field>
-        <input [(ngModel)]="email" name="email" matInput placeholder="Correo Eléctronico" >
-      </mat-form-field>
-
-      <mat-form-field>
-        <input [(ngModel)]="password" name="password" matInput type="password" placeholder="Contraseña" >
-      </mat-form-field>
-
-      <button mat-raised-button>Login</button>
-    </form>
+        <button mat-raised-button>Login</button>
+      </form>
+    </div>
   </div>
 </div>
+
 
 
