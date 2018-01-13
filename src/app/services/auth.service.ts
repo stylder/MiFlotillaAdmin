@@ -26,6 +26,9 @@ export class AuthService {
     );
   }
 
+  getUser(): any {
+    return this.userDetails;
+  }
 
   signInWithGoogle() {
     return this._firebaseAuth.auth.signInWithPopup(

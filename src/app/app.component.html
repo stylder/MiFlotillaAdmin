@@ -1,2 +1,42 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container [class.m2app-dark]="isDarkTheme">
+
+  <mat-sidenav #sidenav mode="over" class="app-sidenav" color="primary">
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <span>Configuración</span>
+        <span class="app-toolbar-filler"></span>
+        <mat-icon class="example-icon">build</mat-icon>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+        <span>Cuenta</span>
+        <span class="app-toolbar-filler"></span>
+        <mat-icon class="example-icon">account_circle</mat-icon>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+        <button mat-raised-button color="accent" class="app-sidebar-button" (click)="logout()">
+          {{user}}
+          <mat-icon class="example-icon">verified_user</mat-icon>
+          Salir
+        </button>
+      </mat-toolbar-row>
+
+    </mat-toolbar>
+  </mat-sidenav>
+
+  <mat-toolbar color="primary">
+    <button mat-button class="app-menu-button" (click)="sidenav.toggle()">
+      <i class="material-icons">menu</i>
+    </button>
+    <span class="title">Gestión de flotillas</span>
+  </mat-toolbar>
+  
+  <div class="app-content">
+    <router-outlet>
+    </router-outlet>
+  </div>
+</mat-sidenav-container>
+
+
 

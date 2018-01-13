@@ -1,6 +1,6 @@
 import {Component, OnInit, Optional} from '@angular/core';
 import {MatDialog, MatDialogRef, MatSnackBar} from '@angular/material';
-import {AuthService} from "../services/auth.service";
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -53,11 +53,96 @@ export class HomeComponent implements OnInit {
     {name: 'Warn', color: 'warn'}
   ];
 
+  data= [
+    {
+      'id': 'X999_Y999',
+      'from': {
+        'name': 'Tom Brady', 'id': 'X12'
+      },
+      'message': 'Looking forward to 2010!',
+      'actions': [
+        {
+          'name': 'Comment',
+          'link': 'http://www.facebook.com/X999/posts/Y999'
+        },
+        {
+          'name': 'Like',
+          'link': 'http://www.facebook.com/X999/posts/Y999'
+        }
+      ],
+      'type': 'status',
+      'created_time': '2010-08-02T21:27:44+0000',
+      'updated_time': '2010-08-02T21:27:44+0000'
+    },
+    {
+      'id': 'X999_Y977',
+      'from': {
+        'name': 'Jim Kazama', 'id': 'X12'
+      },
+      'message': 'How are you guys !',
+      'actions': [
+        {
+          'name': 'Comment',
+          'link': 'http://www.facebook.com/X999/posts/Y999'
+        },
+        {
+          'name': 'Like',
+          'link': 'http://www.facebook.com/X999/posts/Y999'
+        }
+      ],
+      'type': 'status',
+      'created_time': '2010-08-02T21:27:44+0000',
+      'updated_time': '2010-08-02T21:27:44+0000'
+    },
+    {
+      'id': 'X999_Y89',
+      'from': {
+        'name': 'Paul varch', 'id': 'X12'
+      },
+      'message': 'I Love my self :V !',
+      'actions': [
+        {
+          'name': 'Comment',
+          'link': 'http://www.facebook.com/X999/posts/Y89'
+        },
+        {
+          'name': 'Like',
+          'link': 'http://www.facebook.com/X999/posts/Y89'
+        }
+      ],
+      'type': 'status',
+      'created_time': '2010-08-02T21:27:44+0000',
+      'updated_time': '2010-08-02T21:27:44+0000'
+    },
+    {
+      'id': 'X998_Y998',
+      'from': {
+        'name': 'Peyton Manning', 'id': 'X18'
+      },
+      'message': 'Where\'s my contract?',
+      'actions': [
+        {
+          'name': 'Comment',
+          'link': 'http://www.facebook.com/X998/posts/Y998'
+        },
+        {
+          'name': 'Like',
+          'link': 'http://www.facebook.com/X998/posts/Y998'
+        }
+      ],
+      'type': 'status',
+      'created_time': '2010-08-02T21:27:44+0000',
+      'updated_time': '2010-08-02T21:27:44+0000'
+    }
+  ];
+  user: any;
+
   constructor(private _dialog: MatDialog, private _snackbar: MatSnackBar, private authService: AuthService) {
     // Update the value for the progress-bar on an interval.
     setInterval(() => {
       this.progress = (this.progress + Math.floor(Math.random() * 4) + 1) % 100;
     }, 200);
+    this.user = this.authService.getUser();
   }
 
   get tickInterval(): number | 'auto' {
